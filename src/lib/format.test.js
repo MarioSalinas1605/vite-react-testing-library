@@ -1,4 +1,4 @@
-import { capitalize, formatPokedexNumber } from './format.js'
+import { capitalize, formatPokedexNumber, formatSlug } from './format.js'
 
 describe('capitalize', () => {
   it('uppercases the first character', () => {
@@ -19,5 +19,16 @@ describe('formatPokedexNumber', () => {
 
   it('does not truncate longer ids', () => {
     expect(formatPokedexNumber(1025)).toBe('#1025')
+  })
+})
+
+describe('formatSlug', () => {
+  it('turns a kebab-case slug into title case words', () => {
+    expect(formatSlug('special-attack')).toBe('Special Attack')
+    expect(formatSlug('hp')).toBe('Hp')
+  })
+
+  it('returns an empty string for empty input', () => {
+    expect(formatSlug('')).toBe('')
   })
 })

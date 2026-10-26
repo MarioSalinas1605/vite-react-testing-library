@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router'
 import { fetchPokemons } from '../api/pokemon.api.js'
 import { PokemonProvider } from '../store/pokemon.context.jsx'
 import PokemonPage from './PokemonPage.jsx'
@@ -13,7 +14,9 @@ const pokemons = [
 function renderPage() {
   return render(
     <PokemonProvider>
-      <PokemonPage />
+      <MemoryRouter>
+        <PokemonPage />
+      </MemoryRouter>
     </PokemonProvider>,
   )
 }

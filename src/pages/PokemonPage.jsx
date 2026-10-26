@@ -5,9 +5,11 @@ import { usePokemon } from '../store/pokemon.context.jsx'
 function PokemonPage() {
   const { pokemons, status, error, loadPokemons } = usePokemon()
 
+  // The provider outlives this page, so coming back from a detail route
+  // reuses the list already loaded instead of fetching it again.
   useEffect(() => {
-    loadPokemons()
-  }, [loadPokemons])
+    if (status === 'idle') loadPokemons()
+  }, [status, loadPokemons])
 
   return (
     <main className="mx-auto max-w-4xl p-8">
