@@ -13,7 +13,7 @@ function PokemonPage() {
 
   return (
     <main className="mx-auto max-w-4xl p-8">
-      <h1 className="mb-6 text-3xl font-bold text-slate-900">Pokédex</h1>
+      <h1 className="mb-6 text-3xl font-bold text-slate-900">Pokédex Pro</h1>
 
       {(status === 'idle' || status === 'loading') && (
         <p role="status" className="text-slate-500">
